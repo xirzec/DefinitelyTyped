@@ -22,7 +22,7 @@ and limitations under the License.
  * Defines an Element object.
 **/
 interface Element {
-    winControl: any; // TODO: This should be control?
+    winControl: any;
 }
 
 /**
@@ -1360,7 +1360,7 @@ declare module WinJS {
          * @param promise Optional. A promise that will be canceled if it doesn't complete within the timeout period.
          * @returns If the promise parameter is omitted, returns a promise that will be fulfilled after the timeout period. If the promise paramater is provided, the same promise is returned.
         **/
-        static timeout(timeout: number, promise?: Promise<any>): Promise<any>;
+        static timeout(timeout?: number, promise?: Promise<any>): Promise<any>;
 
         /**
          * Wraps a non-promise value in a promise. This method is like wrapError, which allows you to produce a Promise in error conditions, in that it allows you to return a Promise in success conditions.
