@@ -6643,7 +6643,7 @@ declare module WinJS.Utilities {
      * @param element The element to mark as disposable.
      * @param disposeImpl The function containing the element-specific dispose logic, called by the dispose function that markDisposable attaches.
     **/
-    function markDisposable(element: HTMLElement, disposeImpl: Function): void;
+    function markDisposable(element: HTMLElement, disposeImpl?: Function): void;
 
     /**
      * Marks a function as being compatible with declarative processing. Declarative processing is performed by WinJS.UI.processAll or WinJS.Binding.processAll.
