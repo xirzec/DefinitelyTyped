@@ -1384,8 +1384,8 @@ declare module WinJS {
      * @param tags The tag or tags to categorize the message (winjs, winjs controls, etc.).
      * @param type The type of message (error, warning, info, etc.).
     **/
-    function log(message: string, tags: string, type: string): void;
-    function log(message: ()=>string, tags: string, type: string): void;
+    function log(message: string, tags?: string, type?: string): void;
+    function log(message: ()=>string, tags?: string, type?: string): void;
 
     /**
      * This method has been deprecated. Strict processing is always on; you don't have to call this method to turn it on.
