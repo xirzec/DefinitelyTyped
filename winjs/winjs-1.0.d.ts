@@ -6695,10 +6695,10 @@ declare module WinJS.Utilities {
     //#region Interfaces
 
     interface ILogOptions {
-        type: string;
+        type?: string;
         action?: (message: string, tags: string, type: string) => void;
-        excludeTags: string;
-        tags: string;
+        excludeTags?: string;
+        tags?: string;
     }
 
     interface IPosition {
