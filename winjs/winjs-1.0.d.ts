@@ -1333,6 +1333,7 @@ declare module WinJS {
      * @param type The type of message (error, warning, info, etc.).
     **/
     function log(message: string, tags: string, type: string): void;
+    function log(message: () => string, tags: string, type: string): void;
 
     /**
      * This method has been deprecated. Strict processing is always on; you don't have to call this method to turn it on.
@@ -6665,6 +6666,7 @@ declare module WinJS.Utilities {
      * @param options The tags for messages to log. Multiple tags should be separated by spaces. May contain type, tags, excludeTags and action properties.
     **/
     function startLog(options?: ILogOptions): void;
+    function startLog(tags?: string): void;
 
     /**
      * Removes the WinJS logger that had previously been set up.
