@@ -1249,7 +1249,7 @@ declare module WinJS {
          * @param listener The listener to invoke when the event is raised.
          * @param capture true to initiate capture, otherwise false.
         **/
-        addEventListener(type: string, listener: Function, capture?: boolean): void;
+        static addEventListener(type: string, listener: Function, capture?: boolean): void;
 
         /**
          * Returns a promise that is fulfilled when one of the input promises has been fulfilled.
@@ -1306,7 +1306,7 @@ declare module WinJS {
          * @param listener The listener to remove.
          * @param capture Specifies whether or not to initiate capture.
         **/
-        removeEventListener(eventType: string, listener: Function, capture?: boolean): void;
+        static removeEventListener(eventType: string, listener: Function, capture?: boolean): void;
 
         /**
          * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way. For more information about the differences between then and done, see the following topics: Quickstart: using promises in JavaScript How to handle errors when using promises in JavaScript Chaining promises in JavaScript.
