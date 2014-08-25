@@ -5696,6 +5696,7 @@ declare module WinJS.UI.Fragments {
      * @returns A promise that is fulfilled when the fragment has been loaded. If a target element is not specified, the copied fragment is the completed value. The fragment is added to the cache. See also render, where the element is not added to the cache.
     **/
     function renderCopy(href: string, target?: HTMLElement): Promise<HTMLElement>;
+    function renderCopy(href: HTMLElement, target?: HTMLElement): Promise<HTMLElement>;
 
     //#endregion Functions
 
