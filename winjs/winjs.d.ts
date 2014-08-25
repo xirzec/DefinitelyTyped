@@ -7294,6 +7294,7 @@ declare module WinJS.UI.Fragments {
      * @param href The URI that contains the fragment to be cleared. If no URI is provided, the entire contents of the cache are cleared.
     **/
     function clearCache(href: string): void;
+    function clearCache(href: HTMLElement): void;
 
     /**
      * Loads the contents of the specified URI into the specified element without copying it.
