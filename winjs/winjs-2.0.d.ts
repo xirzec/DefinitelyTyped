@@ -1144,7 +1144,7 @@ declare module WinJS.Class {
      * @param staticMembers The set of static fields, properties, and methods made available on the type.
      * @returns The newly-defined type.
     **/
-    function define(constructor: Function, instanceMembers?: any, staticMembers?: any): any;
+    function define(constructor?: Function, instanceMembers?: any, staticMembers?: any): any;
 
     /**
      * Creates a sub-class based on the specified baseClass parameter, using prototype inheritance.
