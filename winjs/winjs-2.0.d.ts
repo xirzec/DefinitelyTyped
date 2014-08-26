@@ -1562,7 +1562,7 @@ declare module WinJS.Resources {
      * Processes data-win-res attributes on elements and replaces attributes and properties with resource strings.
      * @param rootElement The element to process. The element and its child elements will be processed. If an element isn't specified, the entire document is processed.
     **/
-    function processAll(rootElement?: HTMLElement): void;
+    function processAll(rootElement?: HTMLElement): Promise<void>;
 
     /**
      * Removes an event listener that the addEventListener method registered.
