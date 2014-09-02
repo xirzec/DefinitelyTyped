@@ -55,7 +55,7 @@ interface IOHelper {
      * Writes the specified text to the specified file.
      * @param fileName The name of the file.
      * @param text The content to be written to the file.
-     * @returns A promise that completes with a value that is the number of characters written.
+     * @returns A promise that is completed when the file has been written.
      **/
     writeText(fileName: string, text: string): WinJS.Promise<number>;
 }
