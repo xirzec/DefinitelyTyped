@@ -1411,6 +1411,7 @@ declare module WinJS {
         headers?: any;
         data?: any;
         responseType?: string;
+        customRequestInitializer?:(request: XMLHttpRequest) => void;
     }
 
     //#endregion Interfaces
