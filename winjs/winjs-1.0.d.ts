@@ -1357,7 +1357,7 @@ declare module WinJS {
         user?: string;
         password?: string;
         headers?: any;
-        data: any;
+        data?: any;
         responseType?: string;
     }
 
