@@ -1309,7 +1309,7 @@ declare module WinJS {
          * @param value Some non-promise value to be wrapped in a promise.
          * @returns A promise that is successfully fulfilled with the specified value.
         **/
-        static wrap<U>(value: U): Promise<U>;
+        static wrap<U>(value?: U): Promise<U>;
 
         /**
          * Wraps a non-promise error value in a promise. You can use this function if you need to pass an error to a function that requires a promise.
