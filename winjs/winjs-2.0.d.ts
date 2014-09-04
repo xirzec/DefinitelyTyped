@@ -950,24 +950,22 @@ declare module WinJS.Binding {
 
         //#region Methods
 
-        render: {
-            /**
-             * Binds values from the specified data context to elements that are descendants of the specified root element that have the declarative binding attributes specified (data-win-bind).
-             * @param dataContext The object to use for default data binding.
-             * @param container The element to which to add this rendered template. If this parameter is omitted, a new DIV is created.
-             * @returns A Promise that will be completed after binding has finished. The value is either container or the created DIV. promise that is completed after binding has finished.
-            **/
-            (dataContext: any, container?: HTMLElement): Promise<HTMLElement>;
+        /**
+          * Binds values from the specified data context to elements that are descendants of the specified root element that have the declarative binding attributes specified (data-win-bind).
+          * @param dataContext The object to use for default data binding.
+          * @param container The element to which to add this rendered template. If this parameter is omitted, a new DIV is created.
+          * @returns A Promise that will be completed after binding has finished. The value is either container or the created DIV. promise that is completed after binding has finished.
+        **/
+        render(dataContext: any, container?: HTMLElement): Promise<HTMLElement>;
 
-            /**
-             * Renders a template based on the specified URI (static method).
-             * @param href The URI from which to load the template.
-             * @param dataContext The object to use for default data binding.
-             * @param container The element to which to add this rendered template. If this parameter is omitted, a new DIV is created.
-             * @returns A promise that is completed after binding has finished. The value is either the object in the container parameter or the created DIV.
-            **/
-            value(href: string, dataContext: any, container?: HTMLElement): Promise<HTMLElement>;
-        };
+        /**
+          * Renders a template based on the specified URI (static method).
+          * @param href The URI from which to load the template.
+          * @param dataContext The object to use for default data binding.
+          * @param container The element to which to add this rendered template. If this parameter is omitted, a new DIV is created.
+          * @returns A promise that is completed after binding has finished. The value is either the object in the container parameter or the created DIV.
+        **/
+        static render(href: string, dataContext: any, container?: HTMLElement): Promise<HTMLElement>;
 
         //#endregion Methods
 
