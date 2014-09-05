@@ -7980,6 +7980,12 @@ declare module WinJS.Utilities {
         include(items: T[]): void;
 
         /**
+         * Adds a set of items to this QueryCollection.
+         * @param items The items to add to the QueryCollection. This may be an array-like object, a document fragment, or a single item.
+        **/
+        include(items: HTMLCollection): void;
+
+        /**
          * Registers the listener for the specified event on all the elements in the collection.
          * @param eventType The name of the event.
          * @param listener The event handler function to be called when the event occurs.
