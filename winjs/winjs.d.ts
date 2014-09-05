@@ -8171,6 +8171,13 @@ declare module WinJS.Utilities {
     function getRelativeTop(element: HTMLElement, parent: HTMLElement): number;
 
     /**
+     * Gets the tab index of the specified element.
+     * @param element The element
+     * @returns The tabIndex of the element. Returns -1 if the element cannot be tabbed to.
+    **/
+    function getTabIndex(element: HTMLElement): number;
+
+    /**
      * Gets the height of the element, including its margins.
      * @param element The element.
      * @returns The height of the element including margins.
