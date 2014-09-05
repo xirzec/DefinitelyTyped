@@ -6545,7 +6545,7 @@ declare module WinJS.Utilities {
      * @param parent The parent element.
      * @returns The relative left coordinate.
     **/
-    function getRelativeLeft(element: HTMLElement, parent: HTMLElement): number;
+    function getRelativeLeft(element?: HTMLElement, parent?: HTMLElement): number;
 
     /**
      * Gets the top coordinate of the element relative to the specified parent.
@@ -6553,7 +6553,7 @@ declare module WinJS.Utilities {
      * @param parent The parent element.
      * @returns The relative top coordinate.
     **/
-    function getRelativeTop(element: HTMLElement, parent: HTMLElement): number;
+    function getRelativeTop(element?: HTMLElement, parent?: HTMLElement): number;
 
     /**
      * Gets the height of the element, including its margins.
