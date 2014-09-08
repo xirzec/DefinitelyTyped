@@ -8177,6 +8177,13 @@ declare module WinJS.Utilities {
     function getRelativeTop(element?: HTMLElement, parent?: HTMLElement): number;
 
     /**
+     * Gets the scrollLeft and scrollTop of the specified element, adjusting the scrollLeft to change from browser specific coordinates to logical coordinates when in RTL.
+     * @param element The element.
+     * @returns An object with two properties: scrollLeft and scrollTop
+    **/
+    function getScrollPosition(element: HTMLElement): { scrollLeft: number; scrollTop: number};
+
+    /**
      * Gets the tab index of the specified element.
      * @param element The element
      * @returns The tabIndex of the element. Returns -1 if the element cannot be tabbed to.
@@ -8300,6 +8307,13 @@ declare module WinJS.Utilities {
      * @param text The value to be set to the outerHTML property.
     **/
     function setOuterHTMLUnsafe(element: HTMLElement, text: string): void;
+
+    /**
+     * Sets the scrollLeft and scrollTop of the specified element, changing the scrollLeft from logical coordinates to browser-specific coordinates when in RTL.
+     * @param element The element.
+     * @param position An object describing the position to set.
+    **/
+    function setScrollPosition(element: HTMLElement, position: { scrollLeft: number; scrollTop: number}): void;
 
     /**
      * Configures a logger that writes messages containing the specified tags to the JavaScript console.
