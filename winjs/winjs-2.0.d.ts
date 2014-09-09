@@ -6411,6 +6411,8 @@ declare module WinJS.UI {
 
         //#endregion Properties
 
+        static createResultSuggestionImage(url: string): any;
+
     }
 
     /**
