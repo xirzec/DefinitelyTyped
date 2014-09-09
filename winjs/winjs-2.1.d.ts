@@ -5545,6 +5545,13 @@ declare module WinJS.UI {
     }
 
     /**
+     * A special data source for VirtualizedDataSource.computeDataSourceGroups
+     **/
+    interface IListGroupDataSource<T> extends IListDataSource<T> {
+        groups: IListDataSource<T>;
+    }
+
+    /**
      * Serves as the base class for a custom IListDataSource.
     **/
     class VirtualizedDataSource<T> {
@@ -5610,9 +5617,9 @@ declare module WinJS.UI {
      * @param groupKey A callback function that accepts a single argument: an item in the IListDataSource. The function is called for each item in the list and must return the group key for that item as a string.
      * @param groupData A callback function that accepts a single argument: an item in the IListDataSource. The function is called on one IListDataSource item for each group and must return an object that represents the header of that group.
      * @param options An object that can contain properties that specify additional options: groupCountEstimate, batchSize.
-     * @returns An IListDataSource that contains the items in the original data source and provides additional group information in the form of a "groups" property. The "groups" property returns another IListDataSource that enumerates the different groups in the list.
+     * @returns An IListGroupDataSource that contains the items in the original data source and provides additional group information in the form of a "groups" property. The "groups" property returns another IListDataSource that enumerates the different groups in the list.
     **/
-    function computeDataSourceGroups<T>(listDataSource: IListDataSource<T>, groupKey: Function, groupData: Function, options?: any): IListDataSource<T>;
+    function computeDataSourceGroups<T>(listDataSource: IListDataSource<T>, groupKey: Function, groupData: Function, options?: any): IListGroupDataSource<T>;
 
     /**
      * Used to disables all Animations Library and ListView animations. Calling this function does not guarantee that the animations will be disabled, as the determination is made based on several factors.
