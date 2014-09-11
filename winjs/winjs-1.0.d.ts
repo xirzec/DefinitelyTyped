@@ -714,6 +714,7 @@ declare module WinJS.Binding {
          * @returns The new length of the list.
         **/
         push(value: T): number;
+        push(...values: T[]): number;
 
         /**
          * Removes the first element from a list and returns it.
