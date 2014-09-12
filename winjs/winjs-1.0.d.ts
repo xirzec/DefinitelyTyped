@@ -2288,8 +2288,8 @@ declare module WinJS.UI {
          * @param onProgress The function to be called if the promise reports progress. Data about the progress is passed as the single argument. Promises are not required to support progress.
          * @returns The promise whose value is the result of executing the complete or error function.
         **/
-        then(onComplete: (item: T) => void, onError?: (error: Error) => void, onProgress?: (progressData: any) => void): IItemPromise<T>;
-        then<U>(onComplete: (item: T) => U, onError?: (error: Error) => void, onProgress?: (progressData: any) => void): IItemPromise<U>;
+        then(onComplete: (item: T) => void, onError?: (error: Error) => void, onProgress?: (progressData: any) => void): Promise<T>;
+        then<U>(onComplete: (item: T) => U, onError?: (error: Error) => void, onProgress?: (progressData: any) => void): Promise<U>;
         //#endregion Methods
 
         //#region Properties
