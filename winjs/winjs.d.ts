@@ -2373,7 +2373,7 @@ declare module WinJS.UI {
         /**
          * Begins change notification tracking for the IItem that fulfills this IItemPromise.
         **/
-        retain(): void;
+        retain(): IItemPromise<T>;
 
         /**
          * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way.
