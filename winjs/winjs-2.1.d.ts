@@ -1275,7 +1275,7 @@ declare module WinJS {
          * @param details The set of additional properties to be attached to the event object.
          * @returns true if preventDefault was called on the event; otherwise, false.
         **/
-        dispatchEvent(type: string, details: any): boolean;
+        static dispatchEvent(type: string, details: any): boolean;
 
         /**
          * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way. After the handlers have finished executing, this function throws any error that would have been returned from then as a promise in the error state. For more information about the differences between then and done, see the following topics: Quickstart: using promises in JavaScript How to handle errors when using promises in JavaScript Chaining promises in JavaScript.
