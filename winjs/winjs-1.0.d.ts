@@ -1156,10 +1156,19 @@ declare module WinJS {
 
     }
 
+    interface IPromise<T> {
+        cancel(): void;
+        done<U>(onComplete?: (value: T) => any, onError?: (error: any) => any, onProgress?: (progress: any) => void): void;
+        then<U>(onComplete?: (value: T) => IPromise<U>, onError?: (error: any) => IPromise<U>, onProgress?: (progress: any) => void): IPromise<U>;
+        then<U>(onComplete?: (value: T) => IPromise<U>, onError?: (error: any) => U, onProgress?: (progress: any) => void): IPromise<U>;
+        then<U>(onComplete?: (value: T) => U, onError?: (error: any) => IPromise<U>, onProgress?: (progress: any) => void): IPromise<U>;
+        then<U>(onComplete?: (value: T) => U, onError?: (error: any) => U, onProgress?: (progress: any) => void): IPromise<U>;
+    }
+
     /**
      * Provides a mechanism to schedule work to be done on a value that has not yet been computed. It is an abstraction for managing interactions with asynchronous APIs. For more information about asynchronous programming, see Asynchronous programming. For more information about promises in JavaScript, see Asynchronous programming in JavaScript. For more information about using promises, see the WinJS Promise sample.
     **/
-    class Promise<T> {
+    class Promise<T> implements IPromise<T> {
         //#region Constructors
 
         /**
@@ -1178,7 +1187,7 @@ declare module WinJS {
          * Occurs when there is an error in processing a promise.
          * @param eventInfo An object that contains information about the event.
         **/
-        onerror(eventInfo: CustomEvent): void;
+        static onerror(eventInfo: CustomEvent): void;
 
         //#endregion Events
 
@@ -1197,14 +1206,14 @@ declare module WinJS {
          * @param value An array that contains Promise objects or objects whose property values include Promise objects.
          * @returns A promise that on fulfillment yields the value of the input (complete or error).
         **/
-        static any(value: Promise<any>[]): Promise<any>;
+        static any(value: IPromise<any>[]): IPromise<any>;
 
         /**
          * Returns a promise. If the object is already a Promise it is returned; otherwise the object is wrapped in a Promise. You can use this function when you need to treat a non-Promise object like a Promise, for example when you are calling a function that expects a promise, but already have the value needed rather than needing to get it asynchronously.
          * @param value The value to be treated as a Promise.
          * @returns The promise.
         **/
-        static as<U>(value: U): Promise<U>;
+        static as<U>(value: U): IPromise<U>;
 
         /**
          * Attempts to cancel the fulfillment of a promised value. If the promise hasn't already been fulfilled and cancellation is supported, the promise enters the error state with a value of Error("Canceled").
@@ -1239,7 +1248,7 @@ declare module WinJS {
          * @param values An object whose members contain values, some of which may be promises.
          * @returns A Promise whose value is an object with the same field names as those of the object in the values parameter, where each field value is the fulfilled value of a promise.
         **/
-        static join(values: any): Promise<any>;
+        static join(values: any): IPromise<any>;
 
         /**
          * Removes an event listener from the control.
@@ -1256,7 +1265,7 @@ declare module WinJS {
          * @param onProgress The function to be called if the promise reports progress. Data about the progress is passed as the single argument. Promises are not required to support progress.
          * @returns The promise whose value is the result of executing the onComplete function.
         **/
-        then<U>(onComplete?: (value: T) => Promise<U>, onError?: (error: any) => Promise<U>, onProgress?: (progress: any) => void): Promise<U>;
+        then<U>(onComplete?: (value: T) => IPromise<U>, onError?: (error: any) => IPromise<U>, onProgress?: (progress: any) => void): IPromise<U>;
 
         /**
          * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way. For more information about the differences between then and done, see the following topics: Quickstart: using promises in JavaScript How to handle errors when using promises in JavaScript Chaining promises in JavaScript.
@@ -1265,7 +1274,7 @@ declare module WinJS {
          * @param onProgress The function to be called if the promise reports progress. Data about the progress is passed as the single argument. Promises are not required to support progress.
          * @returns The promise whose value is the result of executing the onComplete function.
         **/
-        then<U>(onComplete?: (value: T) => Promise<U>, onError?: (error: any) => U, onProgress?: (progress: any) => void): Promise<U>;
+        then<U>(onComplete?: (value: T) => IPromise<U>, onError?: (error: any) => U, onProgress?: (progress: any) => void): IPromise<U>;
 
         /**
          * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way. For more information about the differences between then and done, see the following topics: Quickstart: using promises in JavaScript How to handle errors when using promises in JavaScript Chaining promises in JavaScript.
@@ -1274,7 +1283,7 @@ declare module WinJS {
          * @param onProgress The function to be called if the promise reports progress. Data about the progress is passed as the single argument. Promises are not required to support progress.
          * @returns The promise whose value is the result of executing the onComplete function.
         **/
-        then<U>(onComplete?: (value: T) => U, onError?: (error: any) => Promise<U>, onProgress?: (progress: any) => void): Promise<U>;
+        then<U>(onComplete?: (value: T) => U, onError?: (error: any) => IPromise<U>, onProgress?: (progress: any) => void): IPromise<U>;
 
         /**
          * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way. For more information about the differences between then and done, see the following topics: Quickstart: using promises in JavaScript How to handle errors when using promises in JavaScript Chaining promises in JavaScript.
@@ -1283,7 +1292,7 @@ declare module WinJS {
          * @param onProgress The function to be called if the promise reports progress. Data about the progress is passed as the single argument. Promises are not required to support progress.
          * @returns The promise whose value is the result of executing the onComplete function.
         **/
-        then<U>(onComplete?: (value: T) => U, onError?: (error: any) => U, onProgress?: (progress: any) => void): Promise<U>;
+        then<U>(onComplete?: (value: T) => U, onError?: (error: any) => U, onProgress?: (progress: any) => void): IPromise<U>;
 
         /**
          * Performs an operation on all the input promises and returns a promise that has the shape of the input and contains the result of the operation that has been performed on each input.
@@ -1293,7 +1302,7 @@ declare module WinJS {
          * @param progress The function to be called if the promise reports progress. This function takes a single argument, which is the data about the progress of the promise. Promises are not required to support progress.
          * @returns A Promise that is the result of calling join on the values parameter.
         **/
-        static thenEach(values: any, complete?: (value: any) => void, error?: (error: any) => void, progress?: (progress: any) => void): Promise<any>;
+        static thenEach(values: any, complete?: (value: any) => void, error?: (error: any) => void, progress?: (progress: any) => void): IPromise<any>;
 
         /**
          * This method has two forms: WinJS.Promise.timeout(timeout) and WinJS.Promise.timeout(timeout, promise). WinJS.Promise.timeout(timeout) creates a promise that is completed asynchronously after the specified timeout, essentially wrapping a call to setTimeout within a promise. WinJS.Promise.timeout(timeout, promise) sets a timeout period for completion of the specified promise, automatically canceling the promise if it is not completed within the timeout period.
@@ -1301,21 +1310,21 @@ declare module WinJS {
          * @param promise Optional. A promise that will be canceled if it doesn't complete within the timeout period.
          * @returns If the promise parameter is omitted, returns a promise that will be fulfilled after the timeout period. If the promise paramater is provided, the same promise is returned.
         **/
-        static timeout(timeout?: number, promise?: Promise<any>): Promise<any>;
+        static timeout(timeout?: number, promise?: IPromise<any>): IPromise<any>;
 
         /**
          * Wraps a non-promise value in a promise. This method is like wrapError, which allows you to produce a Promise in error conditions, in that it allows you to return a Promise in success conditions.
          * @param value Some non-promise value to be wrapped in a promise.
          * @returns A promise that is successfully fulfilled with the specified value.
         **/
-        static wrap<U>(value?: U): Promise<U>;
+        static wrap<U>(value?: U): IPromise<U>;
 
         /**
          * Wraps a non-promise error value in a promise. You can use this function if you need to pass an error to a function that requires a promise.
          * @param error A non-promise error value to be wrapped in a promise.
          * @returns A promise that is in an error state with the specified value.
         **/
-        static wrapError<U>(error: U): Promise<U>;
+        static wrapError<U>(error: U): IPromise<U>;
 
         //#endregion Methods
 
@@ -2245,31 +2254,9 @@ declare module WinJS.UI {
     /**
      * Provides a mechanism for retrieving IItem objects asynchronously.
     **/
-    interface IItemPromise<T> {
-        //#region Events
-
-        /**
-         * Occurs when there is an error in processing.
-         * @param eventInfo An object that contains information about the event.
-        **/
-        onerror(eventInfo: CustomEvent): void;
-
-        //#endregion Events
+    interface IItemPromise<T> extends IPromise<T> {
 
         //#region Methods
-
-        /**
-         * Attempts to cancel the fulfillment of a promised value. If the promise hasn't already been fulfilled and cancellation is supported, the promise enters the error state with a value of Error("Canceled").
-        **/
-        cancel(): void;
-
-        /**
-         * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way. After the handlers have finished executing, this function throws any error that would have been returned from then as a promise in the error state.
-         * @param onComplete The function to be called if the promise is fulfilled successfully with a value. The fulfilled value is passed as the single argument. If the value is null, the fulfilled value is returned. The value returned from the function becomes the fulfilled value of the promise returned by then. If an exception is thrown while executing the function, the promise returned by then moves into the error state.
-         * @param onError The function to be called if the promise is fulfilled with an error. The error is passed as the single argument. If it is null, the error is forwarded. The value returned from the function is the fulfilled value of the promise returned by then.
-         * @param onProgress The function to be called if the promise reports progress. Data about the progress is passed as the single argument. Promises are not required to support progress.
-        **/
-        done(onComplete: (item: T) => void, onError?: (error: Error) => void, onProgress?: (progressData: any) => void): void;
 
         /**
          * Stops change notification tracking for the IItem that fulfills this IItemPromise.
@@ -2281,15 +2268,6 @@ declare module WinJS.UI {
         **/
         retain(): IItemPromise<T>;
 
-        /**
-         * Allows you to specify the work to be done on the fulfillment of the promised value, the error handling to be performed if the promise fails to fulfill a value, and the handling of progress notifications along the way.
-         * @param onComplete The function to be called if the promise is fulfilled successfully with a value. The value is passed as the single argument. If the value is null, the value is returned. The value returned from the function becomes the fulfilled value of the promise returned by then. If an exception is thrown while this function is being executed, the promise returned by then moves into the error state.
-         * @param onError The function to be called if the promise is fulfilled with an error. The error is passed as the single argument. If it is null, the error is forwarded. The value returned from the function becomes the fulfilled value of the promise returned by then.
-         * @param onProgress The function to be called if the promise reports progress. Data about the progress is passed as the single argument. Promises are not required to support progress.
-         * @returns The promise whose value is the result of executing the complete or error function.
-        **/
-        then(onComplete: (item: T) => void, onError?: (error: Error) => void, onProgress?: (progressData: any) => void): Promise<T>;
-        then<U>(onComplete: (item: T) => U, onError?: (error: Error) => void, onProgress?: (progressData: any) => void): Promise<U>;
         //#endregion Methods
 
         //#region Properties
