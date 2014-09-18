@@ -1853,6 +1853,121 @@ declare module WinJS.UI.Animation {
     **/
     function updateBadge(incoming: any, offset: any): Promise<any>;
 
+    /**
+     * Execute a slide up animation.
+     * @param incoming Single element or collection of elements to animate sliding up.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function slideUp(incoming: any): Promise<any>;
+
+    /**
+     * Execute a slide down animation.
+     * @param incoming Single element or collection of elements to animate sliding down.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function slideDown(incoming: any): Promise<any>;
+
+    /**
+     * Execute a slide in from right to left animation.
+     * @param page The page containing all elements to slide.
+     * @param first First element or collection of elements to animate sliding in.
+     * @param second Second element or collection of elements to animate sliding in, which will be offset slightly farther than the first.
+     * @param third Third element or collection of elements to animate sliding in, which will be offset slightly farther than the second.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function slideLeftIn(page: any, first: any, second: any, third: any): Promise<any>;
+
+    /**
+     * Execute a slide out from right to left animation.
+     * @param page The page containing all elements to slide.
+     * @param first First element or collection of elements to animate sliding out.
+     * @param second Second element or collection of elements to animate sliding out, which will be offset slightly farther than the first.
+     * @param third Third element or collection of elements to animate sliding out, which will be offset slightly farther than the second.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function slideLeftOut(page: any, first: any, second: any, third: any): Promise<any>;
+
+    /**
+     * Execute a slide in from left to right animation.
+     * @param page The page containing all elements to slide.
+     * @param first First element or collection of elements to animate sliding in.
+     * @param second Second element or collection of elements to animate sliding in, which will be offset slightly farther than the first.
+     * @param third Third element or collection of elements to animate sliding in, which will be offset slightly farther than the second.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function slideRightIn(page: any, first: any, second: any, third: any): Promise<any>;
+
+    /**
+     * Execute a slide out from left to right animation.
+     * @param page The page containing all elements to slide.
+     * @param first First element or collection of elements to animate sliding out.
+     * @param second Second element or collection of elements to animate sliding out, which will be offset slightly farther than the first.
+     * @param third Third element or collection of elements to animate sliding out, which will be offset slightly farther than the second.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function slideRightOut(page: any, first: any, second: any, third: any): Promise<any>;
+
+    /**
+     * Execute a continuum animation, scaling up the incoming page while scaling, rotating, and translating the incoming item.
+     * @param page Single element to be scaled up that is the page root and does not contain the incoming item.
+     * @param itemRoot Root of the item that will be translated as part of the continuum animation.
+     * @param itemContent Content of the item that will be scaled and rotated as part of the continuum animation.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function continuumForwardIn(page: any, itemRoot: any, itemContent: any): Promise<any>;
+
+    /**
+     * Execute a continuum animation, scaling down the outgoing page while scaling, rotating, and translating the outgoing item.
+     * @param page Single element to be scaled down that is the page root and contains the outgoing item.
+     * @param item Single element to be scaled, rotated, and translated away from the outgoing page.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function continuumForwardOut(page: any, item: any): Promise<any>;
+
+    /**
+     * Execute a continuum animation, scaling down the incoming page while scaling, rotating, and translating the incoming item.
+     * @param page Single element to be scaled down that is the page root and contains the incoming item.
+     * @param item Single element to be scaled, rotated, and translated into its final position on the page.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function continuumBackwardIn(page: any, item: any): Promise<any>;
+
+    /**
+     * Execute a continuum animation, scaling down the outgoing page while.
+     * @param page Single element to be scaled down that is the page root.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function continuumBackwardOut(page: any): Promise<any>;
+
+    /**
+     * Execute a turnstile forward in animation.
+     * @param incoming Single element or collection of elements to animate.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function turnstileForwardIn(incoming: any): Promise<any>;
+
+    /**
+     * Execute a turnstile forward out animation.
+     * @param outgoing Single element or collection of elements to animate.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function turnstileForwardOut(outgoing: any): Promise<any>;
+
+    /**
+     * Execute a turnstile backward in animation.
+     * @param incoming Single element or collection of elements to animate.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function turnstileBackwardIn(incoming: any): Promise<any>;
+
+    /**
+     * Execute a turnstile backward out animation.
+     * @param outgoing Single element or collection of elements to animate.
+     * @returns A Promise that completes when the animation is finished.
+    **/
+    function turnstileBackwardOut(outgoing: any): Promise<any>;
+
+
     //#endregion Functions
 
     //#region Interfaces
