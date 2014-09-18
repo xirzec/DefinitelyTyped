@@ -1732,7 +1732,7 @@ declare module WinJS.UI.Animation {
      * @param offset Initial offsets where the animated objects begin relative to their final position at the end of the animation. Set this parameter to null to use the recommended default offset. Note When the incoming parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function dragBetweenEnter(target: any, offset: any): Promise<any>;
+    function dragBetweenEnter(target: any, offset?: any): Promise<any>;
 
     /**
      * Performs an animation when a dragged object is moved away from items that it had previously involved in a dragBetweenEnter animation. The affected objects are animated back to their original positions.
@@ -1748,7 +1748,7 @@ declare module WinJS.UI.Animation {
      * @param affected Element or elements whose position the dropped object affects. Typically, this is all other items in a reorderable list. This should be the same element or element collection passed as the affected parameter in the dragSourceStart animation.
      * @returns An object that completes when the animation is finished.
     **/
-    function dragSourceEnd(dragSource: any, offset: any, affected?: any): Promise<any>;
+    function dragSourceEnd(dragSource: any, offset?: any, affected?: any): Promise<any>;
 
     /**
      * Performs an animation when the user begins to drag an object.
@@ -1765,7 +1765,7 @@ declare module WinJS.UI.Animation {
      * @param options Optional. Set this value to { mechanism: "transition" } to play the animation using CSS transitions instead of the default CSS animations. In some cases this can result in improved performance.
      * @returns An object that completes when the animation is finished.
     **/
-    function enterContent(incoming: any, offset: any, options?: any): Promise<any>;
+    function enterContent(incoming: any, offset?: any, options?: any): Promise<any>;
 
     /**
      * Performs an animation that shows a new page of content, either when transitioning between pages in a running app or when displaying the first content in a newly launched app.
@@ -1773,7 +1773,7 @@ declare module WinJS.UI.Animation {
      * @param offset An initial offset where the element or elements begin relative to their final position at the end of the animation. Set this parameter to null to use the recommended default offset. Note When the element parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function enterPage(element: any, offset: any): Promise<any>;
+    function enterPage(element: any, offset?: any): Promise<any>;
 
     /**
      * Performs an animation that hides one or more elements on a page.
@@ -1781,7 +1781,7 @@ declare module WinJS.UI.Animation {
      * @param offset Initial offsets where the animated objects begin relative to their final position at the end of the animation. Set this parameter to null to use the recommended default offset. Note When the incoming parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function exitContent(outgoing: any, offset: any): Promise<any>;
+    function exitContent(outgoing: any, offset?: any): Promise<any>;
 
     /**
      * Performs an animation that dismisses the current page when transitioning between pages in an app.
@@ -1789,7 +1789,7 @@ declare module WinJS.UI.Animation {
      * @param offset Initial offsets where the animated objects begin relative to their final position at the end of the animation. Set this parameter to null to use the recommended default offset. Note When the incoming parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function exitPage(outgoing: any, offset: any): Promise<any>;
+    function exitPage(outgoing: any, offset?: any): Promise<any>;
 
     /**
      * Performs an animation that fades an item or set of items into view.
@@ -1812,7 +1812,7 @@ declare module WinJS.UI.Animation {
      * @param options Optional. Set this value to { mechanism: "transition" } to play the animation using CSS transitions instead of the default CSS animations. In some cases this can result in improved performance.
      * @returns An object that completes when the animation is finished.
     **/
-    function hideEdgeUI(element: any, offset: any, options?: any): Promise<any>;
+    function hideEdgeUI(element: any, offset?: any, options?: any): Promise<any>;
 
     /**
      * Performs an animation that hides a panel.
@@ -1820,7 +1820,7 @@ declare module WinJS.UI.Animation {
      * @param offset Initial offsets where the animated objects begin relative to their final position at the end of the animation. Offsets should be the chosen so that the elements end the animation just off-screen. Note When the element parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function hidePanel(element: any, offset: any): Promise<any>;
+    function hidePanel(element: any, offset?: any): Promise<any>;
 
     /**
      * Performs an animation that removes pop-up user interface (UI).
@@ -1850,7 +1850,7 @@ declare module WinJS.UI.Animation {
      * @param options Optional. Set this value to { mechanism: "transition" } to play the animation using CSS transitions instead of the default CSS animations. In some cases this can result in improved performance.
      * @returns An object that completes when the animation is finished.
     **/
-    function showEdgeUI(element: any, offset: any, options?: any): Promise<any>;
+    function showEdgeUI(element: any, offset?: any, options?: any): Promise<any>;
 
     /**
      * Performs an animation that slides a large panel user interface (UI) into view.
@@ -1858,7 +1858,7 @@ declare module WinJS.UI.Animation {
      * @param offset Initial offsets where the animated objects begin relative to their final position at the end of the animation. Offsets should be the chosen so that the elements begin the animation from just off-screen. Note When the element parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function showPanel(element: any, offset: any): Promise<any>;
+    function showPanel(element: any, offset?: any): Promise<any>;
 
     /**
      * Performs an animation that displays a pop-up user interface (UI).
@@ -1866,7 +1866,7 @@ declare module WinJS.UI.Animation {
      * @param offset Initial offsets where the animated objects begin relative to their final position at the end of the animation. Offsets should be the chosen so that the elements begin the animation from just off-screen. Set this parameter to null to use the recommended default offset. Note When the element parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function showPopup(element: any, offset: any): Promise<any>;
+    function showPopup(element: any, offset?: any): Promise<any>;
 
     /**
      * Slides elements off through the bottom of the screen.
@@ -1936,7 +1936,7 @@ declare module WinJS.UI.Animation {
      * @param offset An initial offset where the animated objects begin relative to their final position at the end of the animation. Set this parameter to null to use the recommended default offset. Note When the incoming parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function swipeReveal(target: any, offset: any): Promise<any>;
+    function swipeReveal(target: any, offset?: any): Promise<any>;
 
     /**
      * Performs a selection animation in response to a swipe interaction.
@@ -1981,7 +1981,7 @@ declare module WinJS.UI.Animation {
      * @param offset Initial offsets where incoming animated objects begin relative to their final position at the end of the animation. Set this parameter to null to use the recommended default offset. Note When the incoming parameter specifies an array of elements, the offset parameter can specify an offset array with each item specified for its corresponding element array item. If the array of offsets is smaller than the array of elements, the last offset is applied to all remaining elements.
      * @returns An object that completes when the animation is finished.
     **/
-    function updateBadge(incoming: any, offset: any): Promise<any>;
+    function updateBadge(incoming: any, offset?: any): Promise<any>;
 
     //#endregion Functions
 
