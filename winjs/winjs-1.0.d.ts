@@ -607,7 +607,7 @@ declare module WinJS.Binding {
          * @param fromIndex The index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the list.
          * @returns The index of the last occurrence of a value in a list, or -1 if not found.
         **/
-        lastIndexOf(searchElement: T, fromIndex: number): number;
+        lastIndexOf(searchElement: T, fromIndex?: number): number;
 
         /**
          * Calls the specified callback function on each element of a list, and returns an array that contains the results.
