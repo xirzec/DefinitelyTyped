@@ -738,6 +738,7 @@ declare module WinJS.Binding {
          * @returns The new length of the list.
         **/
         unshift(value: T): number;
+        unshift(...values: T[]): number;
 
         //#endregion Methods
     }
