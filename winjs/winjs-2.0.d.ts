@@ -372,6 +372,12 @@ declare module WinJS.Binding {
 
         //#endregion Properties
 
+        /**
+         * Returns a key/data pair for the specified index.
+         * @param index The index of the value to retrieve.
+         * @returns An object that has two properties: key and data.
+        **/
+        getItem(index: number): IGroupKeyDataPair<T>;
     }
 
     /**
@@ -1126,6 +1132,12 @@ declare module WinJS.Binding {
     interface IKeyDataPair<T> {
         key: string;
         data: T;
+    }
+
+    interface IGroupKeyDataPair<T> extends IKeyDataPair<T> {
+        groupSize: number;
+        firstItemIndexHint: number;
+        firstItemKey: string;
     }
 
     //#endregion Interfaces
