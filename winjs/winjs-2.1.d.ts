@@ -448,7 +448,7 @@ declare module WinJS.Binding {
          * Returns a list with the elements sorted. This method sorts the elements of a list object in place. It does not create a new list object during execution.
          * @param sortFunction The function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order. This function must always return the same results, given the same inputs. The results should not depend on values that are subject to change. You must call notifyMutated each time an item changes. Do not batch change notifications.
         **/
-        sort(sortFunction: (left: T, right: T) => number): void;
+        sort(sortFunction?: (left: T, right: T) => number): void;
 
         /**
          * Removes elements from a list and, if necessary, inserts new elements in their place, returning the deleted elements.
