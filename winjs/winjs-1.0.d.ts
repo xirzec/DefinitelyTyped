@@ -6423,7 +6423,7 @@ declare module WinJS.Utilities {
          * @param renderDonePromiseCallback If supplied, this function is called each time the template gets rendered, and is passed a promise that is fulfilled when the template rendering is complete.
          * @returns The QueryCollection.
         **/
-        template(templateElement: HTMLElement, data: any, renderDonePromiseCallback: Function): QueryCollection<T>;
+        template(templateElement: HTMLElement, data: any, renderDonePromiseCallback?: Function): QueryCollection<T>;
 
         /**
          * Toggles (adds or removes) the specified class on all the elements in the collection. If the class is present, it is removed; if it is absent, it is added.
