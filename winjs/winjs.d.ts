@@ -952,7 +952,7 @@ declare module WinJS.Binding {
          * @param element The DOM element to convert to a template.
          * @param options If this parameter is supplied, the template is loaded from the URI and the content of the element parameter is ignored. You can add the following options: href.
         **/
-        constructor(element: HTMLElement, options?: string);
+        constructor(element: HTMLElement, options?:any);
 
         //#endregion Constructors
 
