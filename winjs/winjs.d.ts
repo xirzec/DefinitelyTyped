@@ -5036,6 +5036,14 @@ declare module WinJS.UI {
         executeAnimations(): void;
 
         /**
+         * Determines the next item to receive keyboard focus.
+         * @param currentItem An object that describes the current item. It has these properties: index, type.
+         * @param pressedKey The key that was pressed.
+         * @returns An object that describes the next item that should receive focus. It has these properties: index, type.
+        **/
+        getAdjacent(currentItem: any, pressedKey: WinJS.Utilities.Key): any;
+
+        /**
          * This method is no longer supported.
          * @param itemIndex 
         **/
