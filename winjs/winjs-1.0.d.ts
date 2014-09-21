@@ -1234,6 +1234,11 @@ declare module WinJS {
         cancel(): void;
 
         /**
+         * Canceled promise value, can be returned from a promise completion handler to indicate cancelation of the promise chain.
+         */
+        static cancel: IPromise<any>;
+
+        /**
          * Raises an event of the specified type and properties.
          * @param type The type (name) of the event.
          * @param details The set of additional properties to be attached to the event object.
