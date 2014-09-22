@@ -3668,6 +3668,11 @@ declare module WinJS.UI {
         //#region Properties
 
         /**
+         * Gets/Sets how AppBar will display itself while hidden. Values are "none" and "minimal".
+        **/
+        closedDisplayMode: string;
+
+        /**
          * Sets the AppBarCommand objects that appear in the app bar.
         **/
         commands: AppBarCommand[];
