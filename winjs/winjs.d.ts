@@ -1278,7 +1278,7 @@ declare module WinJS {
          * @param value The value to be treated as a Promise.
          * @returns The promise.
         **/
-        static as<U>(value: U): IPromise<U>;
+        static as<U>(value?: U): IPromise<U>;
 
         /**
          * Attempts to cancel the fulfillment of a promised value. If the promise hasn't already been fulfilled and cancellation is supported, the promise enters the error state with a value of Error("Canceled").
