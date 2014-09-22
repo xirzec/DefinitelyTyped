@@ -3389,6 +3389,11 @@ declare module WinJS.UI {
          * Gets or sets whether the ListView item is focused and is showing its focus visual.
         **/
         showFocus?: boolean;
+
+        /**
+         * Gets the type, if any.
+        **/
+        type?: WinJS.UI.ObjectType;
     }
 
     /**
