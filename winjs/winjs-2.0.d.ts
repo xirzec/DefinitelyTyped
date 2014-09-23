@@ -5528,7 +5528,7 @@ declare module WinJS.UI {
          * @param placement The placement of the Menu to the anchor: top, bottom, left, or right.
          * @param alignment For top or bottom placement, the alignment of the Menu to the anchor's edge: center, left, or right.
         **/
-        show(anchor: HTMLElement, placement: string, alignment: string): void;
+        show(anchor: HTMLElement, placement?: string, alignment?: string): void;
 
         /**
          * Shows the specified commands of the Menu.
