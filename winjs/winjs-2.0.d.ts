@@ -4265,7 +4265,7 @@ declare module WinJS.UI {
          * @param placement The placement of the Flyout to the anchor: the string literal "top", "bottom", "left", or "right".
          * @param alignment For "top" or "bottom" placement, the alignment of the Flyout to the anchor's edge: the string literal "center", "left", or "right".
         **/
-        show(anchor: HTMLElement, placement: string, alignment: string): void;
+        show(anchor: HTMLElement, placement?: string, alignment?: string): void;
 
         //#endregion Methods
 
