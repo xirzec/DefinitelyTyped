@@ -7543,7 +7543,7 @@ declare module WinJS.UI.Pages {
          * @param err The error that occurred.
          * @returns Nothing if the error was handled, or an error promise if the error was not handled.
         **/
-        error? (err: any): Promise<any>;
+        error? (err: any): any;
 
         /**
          * Initializes the control before the content of the control is set. Use the processed method for any initialization that should be done after the content of the control has been set.
@@ -7551,14 +7551,14 @@ declare module WinJS.UI.Pages {
          * @param options The options passed to the constructor of the page.
          * @returns A promise that is fulfilled when initialization is complete, if asynchronous processing is necessary. If not, returns nothing.
         **/
-        init? (element: HTMLElement, options: any): Promise<any>;
+        init? (element: HTMLElement, options: any): any;
 
         /**
          * Creates DOM objects from the content in the specified URI. This method is called after the PageControl is defined and before the init method is called.
          * @param uri The URI from which to create DOM objects.
          * @returns A promise whose fulfilled value is the set of unparented DOM objects.
         **/
-        load? (uri: string): Promise<any>;
+        load? (uri: string): any;
 
         /**
          * Initializes the control after the content of the control is set.
@@ -7566,7 +7566,7 @@ declare module WinJS.UI.Pages {
          * @param options The options that are to be passed to the constructor of the page.
          * @returns A promise that is fulfilled when initialization is complete, if asynchronous processing is necessary. If not, returns nothing.
         **/
-        processed? (element: HTMLElement, options: any): Promise<any>;
+        processed? (element: HTMLElement, options: any): any;
 
         /**
          * Called after all initialization and rendering is complete. At this time, the element is ready for use.
@@ -7574,7 +7574,7 @@ declare module WinJS.UI.Pages {
          * @param options An object that contains one or more property/value pairs to apply to the PageControl. How these property/value pairs are used (or not used) depends on the implementation of that particular PageControl.
          * @returns A promise that is fulfilled when the element is ready for use, if asynchronous processing is necessary. If not, returns nothing.
         **/
-        ready? (element: HTMLElement, options: any): Promise<any>;
+        ready? (element: HTMLElement, options: any): any;
 
         /**
          * Takes the elements returned by the load method and attaches them to the specified element.
