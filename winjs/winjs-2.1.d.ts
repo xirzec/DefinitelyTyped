@@ -5893,12 +5893,6 @@ declare module WinJS.UI.Pages {
 
     //#region Objects
 
-    /**
-     * A modular unit of HTML, CSS, and JavaScript that can be navigated to or used as a custom WinJS control.
-    **/
-    class PageControl {
-    }
-
     //#endregion Objects
 
     //#region Functions
@@ -5909,14 +5903,14 @@ declare module WinJS.UI.Pages {
      * @param members An object that defines the members that the control will have.
      * @returns A constructor function that creates the PageControl.
     **/
-    function define(uri: string, members: IPageControlMembers): PageControl;
+    function define(uri: string, members: IPageControlMembers): (element?, options?, complete?, parentedPromise?) => void;
 
     /**
      * Gets an already-defined page control for the specified URI, or creates a new one.
      * @param uri The URI for the content that defines the page.
      * @returns A constructor function that creates the page.
     **/
-    function get(uri: string): Function;
+    function get(uri: string): (element?, options?, complete?, parentedPromise?) => void;
 
     /**
      * Creates a PageControl from the specified URI and inserts it inside the specified element.
