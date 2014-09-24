@@ -7488,7 +7488,7 @@ declare module WinJS.UI.Pages {
      * @param parentedPromise A Promise that is fulfilled when the new PageControl is done rendering and its contents becomes the child of element.
      * @returns A promise that is fulfilled when rendering is complete, if asynchronous processing is necessary. If not, returns nothing.
     **/
-    function render(uri: string, element?: HTMLElement, options?: any, parentedPromise?: Promise<any>): Promise<void>;
+    function render(uri: string, element?: HTMLElement, options?: any, parentedPromise?: Promise<any>): Promise<any>;
 
     //#endregion Functions
 
