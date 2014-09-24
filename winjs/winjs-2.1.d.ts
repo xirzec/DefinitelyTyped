@@ -5134,7 +5134,7 @@ declare module WinJS.UI {
         /**
          * Gets or sets the header for this PivotItem.
         **/
-        header: HTMLElement;
+        header: string;
 
         //#endregion Properties
     }
