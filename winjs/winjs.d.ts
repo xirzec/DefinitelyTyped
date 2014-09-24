@@ -5629,6 +5629,157 @@ declare module WinJS.UI {
     }
 
     /**
+ * A tab control that displays multiple items.
+**/
+    class Pivot {
+        //#region Constructors
+
+        /**
+         * Creates a new Pivot.
+         * @constructor 
+         * @param element The DOM element hosts the new Pivot.
+         * @param options An object that contains one or more property/value pairs to apply to the new control. Each property of the options object corresponds to one of the control's properties or events. Event names must begin with "on". For example, to provide a handler for the cancel event, add a property named "oncancel" to the options object and set its value to the event handler.
+        **/
+        constructor(element?: HTMLElement, options?: any);
+
+        //#endregion Constructors
+
+        //#region Events
+
+        /**
+         * Raised when a PivotItem control's animation ends.
+         * @param eventInfo An object that contains information about the event.
+        **/
+        onitemanimationend(eventInfo: Event): void;
+
+        /**
+         * Raised when a PivotItem control's animation starts.
+         * @param eventInfo An object that contains information about the event.
+        **/
+        onitemanimationstart(eventInfo: Event): void;
+
+        /**
+         * Raised when the user navigates to a different PivotItem.
+         * @param eventInfo An object that contains information about the event.
+        **/
+        onselectionchanged(eventInfo: Event): void;
+
+        //#endregion Events
+
+        //#region Methods
+
+        /**
+         * Registers an event handler for the specified event.
+         * @param eventName The name of the event to handle.
+         * @param eventHandler The event handler function to associate with the event.
+         * @param useCapture Set to true to register the event handler for the capturing phase; otherwise, set to false to register the event handler for the bubbling phase.
+        **/
+        addEventListener(eventName: string, eventHandler: Function, useCapture?: boolean): void;
+
+        /**
+         * Raises an event of the specified type and with additional properties.
+         * @param type The type (name) of the event.
+         * @param eventProperties The set of additional properties to be attached to the event object when the event is raised.
+         * @returns true if preventDefault was called on the event, otherwise false.
+        **/
+        dispatchEvent(type: string, eventProperties: any): boolean;
+
+        /**
+         * Releases resources held by this Pivot. Call this method when the Pivot is no longer needed. After calling this method, the Pivot becomes unusable.
+        **/
+        dispose(): void;
+
+        /**
+         * Removes an event handler that the addEventListener method registered.
+         * @param eventName The name of the event that the event handler is registered for.
+         * @param eventCallback The event handler function to remove.
+         * @param useCapture Set to true to remove the capturing phase event handler; set to false to remove the bubbling phase event handler.
+        **/
+        removeEventListener(eventName: string, eventCallback: Function, useCapture?: boolean): void;
+
+        //#endregion Methods
+
+        //#region Properties
+
+        /**
+         * Gets the DOM element that hosts the Pivot control.
+        **/
+        element: HTMLElement;
+
+        /**
+         * Gets or sets the Binding.List that contains the PivotItem objects that belong to this Pivot.
+        **/
+        items: Binding.List<PivotItem>;
+
+        /**
+         * Gets or sets a value that specifies whether the Pivot control is locked to the current item.
+        **/
+        locked: boolean;
+
+        /**
+         * Gets or sets the index of the PivotItem control in view.
+        **/
+        selectedIndex: number;
+
+        /**
+         * Gets or sets the PivotItem control in view within the Pivot control.
+        **/
+        selectedItem: PivotItem;
+
+        /**
+         * Gets or sets the title displayed above the PivotItem controls.
+        **/
+        title: string;
+
+        //#endregion Properties
+    }
+
+    /**
+     * An item within a Pivot control.
+    **/
+    class PivotItem {
+        //#region Constructors
+
+        /**
+         * Creates a new PivotItem.
+         * @constructor 
+         * @param element The DOM element hosts the new PivotItem.
+         * @param options An object that contains one or more property/value pairs to apply to the new control. Each property of the options object corresponds to one of the control's properties or events. Event names must begin with "on". For example, to provide a handler for the cancel event, add a property named "oncancel" to the options object and set its value to the event handler.
+        **/
+        constructor(element?: HTMLElement, options?: any);
+
+        //#endregion Constructors
+
+        //#region Methods
+
+        /**
+         * Releases resources held by this PivotItem. Call this method when the PivotItem is no longer needed. After calling this method, the PivotItem becomes unusable.
+        **/
+        dispose(): void;
+
+        //#endregion Methods
+
+        //#region Properties
+
+        /**
+         * Gets the DOM element that hosts the PivotItem control's content.
+        **/
+        contentElement: HTMLElement;
+
+        /**
+         * Gets the DOM element that hosts the PivotItem control.
+        **/
+        element: HTMLElement;
+
+        /**
+         * Gets or sets the header for this PivotItem.
+        **/
+        header: HTMLElement;
+
+        //#endregion Properties
+    }
+
+    /**
      * Represents a menu flyout for displaying commands.
     **/
     class Menu {
